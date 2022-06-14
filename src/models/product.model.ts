@@ -1,6 +1,7 @@
 import { ICategory } from "./category.model";
+import { CreateProductDto, UpdatedProductDto } from "../dtos/product.dto";
 
-export interface IProduct {
+export type IProduct = {
   id: number;
   title: string;
   price: number;
@@ -9,14 +10,15 @@ export interface IProduct {
   images: string[];
 }
 
-export type productsParams = {
+export type ProductsParams = {
   limit: number;
   offset: number;
 };
 
 export interface IProductsService {
-  getAll(params: productsParams): Promise<IProduct[]>;
-  create(): Promise<void>;
-  update(): Promise<void>;
-  delete(): Promise<void>;
+  getAll(params: ProductsParams): Promise<IProduct[]>;
+  getByID(userId: IProduct["id"]): Promise<IProduct | undefined>
+  create(product: CreateProductDto): Promise<IProduct>;
+  update(userId: IProduct["id"], updateProduct: CreateProductDto): Promise<UpdatedProductDto>;
+  delete(userId: IProduct["id"]): Promise<void>;
 }
