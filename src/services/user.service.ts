@@ -12,9 +12,9 @@ class UserService implements IUserService {
     return users;
   }
 
-  async create(newUser: CreateUserDto) {
-    const { data: user } = await API.post<IUser>(API_URL, { ...newUser });
-    return user;
+  async create(userInfo: CreateUserDto) {
+    const { data: newUser } = await API.post<IUser>(API_URL, userInfo);
+    return newUser;
   }
 
   async isAvailable(email: IUser["email"]) {
