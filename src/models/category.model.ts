@@ -1,7 +1,7 @@
 import { CreateCategoryDto } from "../dtos/category.dto";
 import { IProduct, ProductsParams } from "./product.model";
 
-export interface ICategory {
+export type ICategory = {
   id: number;
   name: string;
   image: string;
