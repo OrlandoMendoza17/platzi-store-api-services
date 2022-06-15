@@ -1,15 +1,12 @@
 import API from "../api";
 import { CreateProductDto, UpdatedProductDto } from "../dtos/product.dto";
-import {
-  ProductsParams,
-  IProduct,
-  IProductsService,
-} from "../models/product.model";
+import { ProductsParams, IProduct, IProductsService } from "../models/product.model";
 
 const API_URL = "/products";
+
 class ProductsService implements IProductsService {
 
-  async getAll(params: ProductsParams): Promise<IProduct[]> {
+  async getAll(params: ProductsParams) {
     const { data: products } = await API.get<IProduct[]>(API_URL, { params });
     return products;
   }
