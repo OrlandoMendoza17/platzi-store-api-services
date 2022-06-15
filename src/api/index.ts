@@ -9,4 +9,4 @@ const API = axios.create({
 
 console.log(API_URL)
 
-export default API
+export default API;
